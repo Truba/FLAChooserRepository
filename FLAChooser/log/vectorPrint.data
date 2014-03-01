@@ -1,0 +1,15 @@
+sin * exp sin / / sin / sin sin 0|1 sin exp / 0|12 0|3 sin 0|2 sin exp / / 0|3 0|9 / 0|12 / / 0|3 0|9 sin 0|1 * exp sin / / sin 0|6 0|6 sin exp / / 0|3 0|9 / 0|12 / / 0|3 0|9 sin 0|1 sin sin sin sin exp / sin sin 0|1 sin exp / 0|12 0|3
+
+Test: 1 t=(0), y=(0) EQU: true
+Test: 2 t=(0), y=(0) EQU: true
+Test: 3 t=(0), y=(0) EQU: true
+Test: 4 t=(1), y=(1) EQU: true
+Test: 5 t=(1), y=(1) EQU: true
+Test: 6 t=(0), y=(0) EQU: true
+Test: 7 t=(0), y=(0) EQU: true
+Test: 8 t=(0), y=(0) EQU: true
+Test: 9 t=(0), y=(0) EQU: true
+Test: 10 t=(1), y=(1) EQU: true
+Test: 11 t=(0), y=(0) EQU: true
+Test: 12 t=(0), y=(0) EQU: true
+Num of correct: 12, num of false: 0
