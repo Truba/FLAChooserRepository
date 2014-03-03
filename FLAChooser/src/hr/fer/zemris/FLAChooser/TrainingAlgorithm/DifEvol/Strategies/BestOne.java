@@ -1,10 +1,10 @@
-package hr.fer.zemris.FLAChooser.TrainingAlgorithm.Strategies;
+package hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol.Strategies;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import hr.fer.zemris.FLAChooser.TrainingAlgorithm.IStrategy;
-import hr.fer.zemris.FLAChooser.TrainingAlgorithm.Unit;
+import hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol.IStrategy;
+import hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol.Unit;
 
 public class BestOne implements IStrategy {
 

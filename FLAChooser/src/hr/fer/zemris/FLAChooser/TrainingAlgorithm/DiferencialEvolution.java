@@ -4,6 +4,8 @@ import hr.fer.zemris.FLAChooser.Parameters;
 import hr.fer.zemris.FLAChooser.Data.DataParticle;
 import hr.fer.zemris.FLAChooser.Interfaces.INeuralNetwork;
 import hr.fer.zemris.FLAChooser.Interfaces.ITrainingAlgorithm;
+import hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol.IStrategy;
+import hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol.Unit;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -55,6 +57,8 @@ public class DiferencialEvolution implements ITrainingAlgorithm {
 			dataStart = neurNet.getData();
 			dataCrosValid = Parameters.testgSet.getData(Parameters.testDataPath);
 			Parameters.dataModifier.modyfyData(dataCrosValid);
+			File f = new File(Parameters.CrossValidationErrorFile);
+			f.delete();
 		}
 		
 	}
@@ -69,7 +73,7 @@ public class DiferencialEvolution implements ITrainingAlgorithm {
 		ArrayList<Unit> pop = initPopulation();
 		evaluate(pop);
 		best = getBest(pop);
-		for(int iter = 0, iterCh = 0; iterCh < maxGenNoChamdge; iter++, iterCh++){
+		for(int iter = 0, iterCh = 0; iterCh < maxGenNoChamdge && best.fitnes > Parameters.stoppingFitnes; iter++, iterCh++){
 			ArrayList<Unit> popNew = new ArrayList<>();			
 			for (int i=0; i<pop.size(); i++){
 				

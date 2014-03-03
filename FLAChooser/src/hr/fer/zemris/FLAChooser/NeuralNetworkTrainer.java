@@ -45,7 +45,7 @@ public class NeuralNetworkTrainer {
 		dataModify.modyfyData(data);
 		neurNet.set(data,dataModify);
 		
-		trainingAlg = new DiferencialEvolution();
+		trainingAlg = Parameters.trainAlg;
 		trainingAlg.set(numOfWeights,neurNet);
 	}
 	

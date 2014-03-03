@@ -1,4 +1,4 @@
-package hr.fer.zemris.FLAChooser.TrainingAlgorithm;
+package hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol;
 
 public class Unit {
 	

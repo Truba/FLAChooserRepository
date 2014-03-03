@@ -56,6 +56,8 @@ public class DecisionTreeGP implements IGeneticProgram {
 		if(Parameters.enableCrossVal){
 			crossValidationData = Parameters.testgSet.getData(Parameters.testDataPath);
 			Parameters.dataModGP.modyfyData(crossValidationData);
+			File f = new File(Parameters.CrossValidationErrorFile);
+			f.delete();
 		}
 		algorithm();
 		

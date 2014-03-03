@@ -1,4 +1,5 @@
-package hr.fer.zemris.FLAChooser.TrainingAlgorithm;
+package hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol;
+
 
 import java.util.ArrayList;
 import java.util.Random;
