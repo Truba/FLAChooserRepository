@@ -32,7 +32,7 @@ public class Shifter {
 		sc.close();
 		//
 
-		String[] training = new String[(int) Math.round(0.5 * list.size())];
+		String[] training = new String[(int) Math.round(Parameters.percForTrainingSet * list.size())];
 		String[] test = new String[list.size() - training.length];
 		Random rand = new Random();
 

@@ -16,6 +16,9 @@ import hr.fer.zemris.FLAChooser.TrainingAlgorithm.DifEvol.Strategies.BestOne;
 
 public class Parameters {
 	
+	//shifter
+	public static final double percForTrainingSet = 0.5; //(1 - percForTrainingSet) for test set
+	
 	//files
 	public static final String initialData = "logAlg/alg3.data";
 	public static final String trainingDataPath = "log/training.data";
