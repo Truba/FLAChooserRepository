@@ -16,6 +16,8 @@ public interface IGeneticProgram {
 	public double calc(INode root);
 
 	public StringBuilder show(INode bestRoot);
+
+	public String getResoults(INode bestRoot);
 	
 	
 

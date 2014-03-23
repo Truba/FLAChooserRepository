@@ -250,4 +250,24 @@ public class SymbolicRegresionGP implements IGeneticProgram {
 		return sb;
 	}
 
+	@Override
+	public String getResoults(INode bestRoot) {
+		int guess = 0;
+		double avgErr = 0;
+		
+		for(int i=0; i<data.size();i++){
+			
+			double output = (Parameters.useSigmoidFunctionToScaleOutput) ? sigmoidFunction(bestRoot.run(data.get(i).xVector)) : bestRoot.run(data.get(i).xVector);
+			avgErr += (data.get(i).yVector[0] - output)*(data.get(i).yVector[0] - output);
+			
+			String y = Parameters.dataModGP.modify(output);
+			String t = Parameters.dataModGP.modify(data.get(i).yVector[0]);
+			if(y.equals(t)) guess++;
+			
+			
+			
+		}	
+		return guess+" "+avgErr;
+	}
+
 }

@@ -1,19 +1,19 @@
 package hr.fer.zemris.FLAChooser;
 
 import hr.fer.zemris.FLAChooser.Data.DataParticle;
+import hr.fer.zemris.FLAChooser.Interfaces.IAmTrainer;
 import hr.fer.zemris.FLAChooser.Interfaces.IDataModifiers;
 import hr.fer.zemris.FLAChooser.Interfaces.IGetData;
 import hr.fer.zemris.FLAChooser.Interfaces.INeuralNetwork;
 import hr.fer.zemris.FLAChooser.Interfaces.ITrainingAlgorithm;
 import hr.fer.zemris.FLAChooser.NeuralNetwork.NeuralNetwork;
-import hr.fer.zemris.FLAChooser.TrainingAlgorithm.DiferencialEvolution;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-public class NeuralNetworkTrainer {
+public class NeuralNetworkTrainer implements IAmTrainer{
 
 	static INeuralNetwork neurNet;
 	static IDataModifiers dataModify;
@@ -21,16 +21,25 @@ public class NeuralNetworkTrainer {
 	static ITrainingAlgorithm trainingAlg;
 	static List<DataParticle> data;
 	
+	static double[] bestVector;
+	
 	static int numOfWeights;	
 	
 	public static void main(String[] args) {
 		initAll();
 		trainingAlg.start();		
 		
-		double[] bestVector = trainingAlg.getBestVector();
-		printBestToFile(bestVector);
+		bestVector = trainingAlg.getBestVector();
 		
-		
+		if(Parameters.shouldPrintBestToFile){
+			printBestToFile(bestVector);
+		}	
+	}
+	@Override
+	public String getNumOfCorrect() {
+		main(null);
+		String resoults = neurNet.getResoults(bestVector);
+		return resoults;
 	}
 
 	private static void initAll() {

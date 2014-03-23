@@ -140,6 +140,35 @@ public class NeuralNetwork implements INeuralNetwork{
 		return data;
 	}
 
+	@Override
+	public String getResoults(double[] x) {
+		int guessClass = 0;
+		int guessOutput = 0;
+		double avgErr = 0;
+		
+		for(int i=0; i<data.size();i++){
+			
+			double[] outputs = calcOutputs(data.get(i).xVector, x, data.get(i).yVector.length);
+			
+			boolean guessKlass = true; 
+			for(int j=0; j<data.get(i).yVector.length; j++){
+				String y = dataModify.modify(outputs[j]);
+				String t = dataModify.modify(data.get(i).yVector[j]);
+				avgErr = Math.abs(outputs[j] - data.get(i).yVector[j]);
+				if(y.equals(t)) {
+					guessOutput++;
+				}
+				else{
+					guessKlass = false;
+				}
+			}
+			
+			if(guessKlass) guessClass++;
+			
+		}	
+		return guessClass+" "+guessOutput+" "+avgErr;
+	}
+
 	
 
 	

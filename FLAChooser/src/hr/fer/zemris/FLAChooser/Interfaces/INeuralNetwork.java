@@ -18,4 +18,6 @@ public interface INeuralNetwork {
 	
 	public List<DataParticle> getData();
 
+	public String getResoults(double[] vector);
+
 }
